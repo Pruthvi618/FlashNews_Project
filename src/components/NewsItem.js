@@ -7,7 +7,7 @@ export class NewsItem extends Component {
     return (
       <div className="card my-3" style={cardStyle}>
         <img src={imageUrl} className="card-img-top" alt="News" style={imageStyle} />
-        <div className="card-body" style={bodyStyle}>
+        <div className="news-card-body" style={bodyStyle}>
           <h5 className="card-title" style={titleStyle}>{title}</h5>
           <p className="card-text" style={descriptionStyle}>{description}...</p>
           <a href={newsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm" style={buttonStyle}>Read More</a>

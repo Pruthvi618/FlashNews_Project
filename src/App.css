@@ -1,38 +1,88 @@
-.App {
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+/* Header Styles */
+.app-header {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem 0;
+  background-color: #007bff;
   color: white;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+/* News Card Styles */
+.news-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  height: 100%; /* Make cards same height */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.news-card:hover {
+  transform: translateY(-10px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.news-card-body {
+  padding: 1rem;
+  color: #333;
+}
+
+.news-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.news-card-description {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons .btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.buttons .btn:hover {
+  background-color: #0056b3;
+}
+
+.buttons .btn:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NewsItem from './NewsItem';
 
 export class News extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -74,6 +73,8 @@ export class News extends Component {
 
     return (
       <div>
+        <div className="app-header">NewsFlash: Your Daily News</div>
+
         <div className="container my-3">
           {/* Show loading spinner when loading */}
           {loading ? <h2>Loading...</h2> : (
@@ -81,12 +82,13 @@ export class News extends Component {
               {articles.map((element, index) => {
                 return (
                   <div className="col-md-3" key={index}>
-                    <NewsItem
-                      title={element.title ? element.title.slice(0, 95) : ""}
-                      description={element.description ? element.description.slice(0, 100) : ""}
-                      imageUrl={!element.urlToImage ? "https://deadline.com/wp-content/uploads/2024/10/Dakota-Johnson-Sean-Penn-Daddio.jpg?w=1024" : element.urlToImage}
-                      newsUrl={element.url}
+                   <NewsItem 
+                      title={element.title ? element.title.slice(0, 80) : ""} 
+                      description={element.description ? element.description.slice(0, 100) : ""} 
+                      imageUrl={element.urlToImage || "https://deadline.com/wp-content/uploads/2024/10/Dakota-Johnson-Sean-Penn-Daddio.jpg?w=1024"} 
+                      newsUrl={element.url} 
                     />
+
                   </div>
                 );
               })}
@@ -95,22 +97,11 @@ export class News extends Component {
         </div>
 
         {/* Pagination buttons */}
-        <div className="buttons d-flex justify-content-around my-4">
-          <button 
-            disabled={page <= 1} 
-            type="button" 
-            className="btn btn-secondary" 
-            onClick={this.handlePrevious}
-          >
+        <div className="buttons container my-4">
+          <button disabled={page <= 1} type="button" className="btn" onClick={this.handlePrevious}>
             &larr; Previous
           </button>
-
-          <button 
-            disabled={page >= totalPages} 
-            type="button" 
-            className="btn btn-secondary" 
-            onClick={this.handleNext}
-          >
+          <button disabled={page >= totalPages} type="button" className="btn" onClick={this.handleNext}>
             Next &rarr;
           </button>
         </div>
